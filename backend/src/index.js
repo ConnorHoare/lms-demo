@@ -1,12 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const userRoutes = require('./routes/users');
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api', userRoutes);
 
 // Sample Routes need to be replaced
 app.get('/', (req, res) => {
